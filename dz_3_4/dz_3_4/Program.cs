@@ -1,6 +1,5 @@
-﻿Console.Write("Введите  число:");
-int N = Convert.ToInt32(Console.ReadLine());
-for ( int i = 1; i<=N;)
-{
-    Console.WriteLine($"Куб числа {i} равен {Math.Pow(i,3)}");
-}
+﻿Console.Write("Введите первое число:");
+int a = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите второе число:");
+int b = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"Число a в стeпени b равно {Math.Pow(a,b)}");
