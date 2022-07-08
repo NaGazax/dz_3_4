@@ -1,14 +1,6 @@
-﻿Console.Write("Введите координаты x1: ");
-double x1 = Convert.ToDouble(Console.ReadLine());
-Console.Write("Введите координаты y1: ");
-double y1 = Convert.ToDouble(Console.ReadLine());
-Console.Write("Введите координаты z1: ");
-double z1 = Convert.ToDouble(Console.ReadLine());
-Console.Write("Введите координаты x2: ");
-double x2 = Convert.ToDouble(Console.ReadLine());
-Console.Write("Введите координаты y2: ");
-double y2 = Convert.ToDouble(Console.ReadLine());
-Console.Write("Введите координаты z2: ");
-double z2 = Convert.ToDouble(Console.ReadLine());
-double distance = Math.Sqrt(Math.Pow(x2 - x1, 2)+ Math.Pow(y2 - y1,2)+ Math.Pow(z2-z1,2));
-Console.WriteLine($"Расстояние между двумя точка равно: + {Math.Round(distance)}");
+﻿Console.Write("Введите  число:");
+int N = Convert.ToInt32(Console.ReadLine());
+for ( int i = 1; i<=N;)
+{
+    Console.WriteLine($"Куб числа {i} равен {Math.Pow(i,3)}");
+}
