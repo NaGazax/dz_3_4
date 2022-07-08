@@ -1,17 +1,11 @@
-﻿Console.Write("Введите число: ");
-int number = Convert.ToInt32(Console.ReadLine());
-int sum(int number)
+﻿int [] array = GetBinaryArray(8);
+Console.WriteLine($"[{String.Join("; ",array)}]");
+int [] GetBinaryArray(int size)
 {
-    int count = Convert.ToString(number).Length;
-    int progress = 0;
-    int result = 0;
-    for (int i = 0; i < count; i++)
+    int [] result = new int[size];
+    for (int i = 0; i<size; i++)
     {
-      progress = number - number % 10;
-      result = result + (number - progress);
-      number = number / 10;
+        result [i] = new Random().Next(-100,100);
     }
-   return result;
-  }
-int sumNumber = sum(number);
-Console.WriteLine("Сумма цифр: " + sumNumber);
+    return result;
+}
