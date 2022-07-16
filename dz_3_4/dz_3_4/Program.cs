@@ -1,14 +1,33 @@
 ﻿
-int[] array = new int[6];
-int max = 0;
-int min = 0;
-for (int i = 0; i < array.Length; i++)  
-{ 
-array[i] = new Random().Next(100, 999);
-max = array.Max();
-min = array.Min();
+// Задача 41
+Console.Write("Введите числа: ");
+int[] array = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+int count = 0;
+for (int i = 0; i < array.Length; i++)
+{
+    if (array[i] > 0)
+    {
+        count++;
+    }
 }
-Console.WriteLine($"({String.Join(";",array)})");
-Console.WriteLine($"Максимальное число :  {max} ");
-Console.WriteLine($"Минимальное число :  {min} ");
-Console.WriteLine($"Разница двух чисел :  {max - min} ");
+ Console.WriteLine($"Количество положительных чисел: {count}"); 
+
+// Задача 43
+Console.Write("Введите k1: ");
+var k1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите b1: ");
+var b1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите k2: ");
+var k2 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите b2: ");
+var b2 = Convert.ToDouble(Console.ReadLine());
+ 
+ 
+var x = (b2 - b1) / (k1 - k2);
+var y = k1 * x + b1;
+
+if ( k1 == k2) Console.WriteLine( "Прямые параллельны");
+x = Math.Round(x);
+y = Math.Round(y);
+ 
+Console.WriteLine($"Пересечение в точке: ({x};{y})");
