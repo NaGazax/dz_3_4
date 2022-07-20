@@ -40,3 +40,22 @@
  
 // Console.ReadKey();
         
+// Задание 52
+
+// Console.WriteLine("Введиите кол-во строк :");
+// int rows = int.Parse(Console.ReadLine());
+// Console.WriteLine("Введиите кол-во столбцов :");
+// int columns = Convert.ToInt32(Console.ReadLine());
+// int [,] array = new int [rows,columns];
+// for (int i = 0; i < array.GetLength(0); i++) 
+//     {
+//         int mean = 0;
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i,j] = new Random().Next(11);
+//             Console.Write(array[i,j] + "\t");
+//             mean += array[i, j];
+                
+//         }
+//     Console.WriteLine($"Cреднее арифметическое элементов столбца {i + 1} = {(float)mean/array.GetLength(1)}");
+//     }
