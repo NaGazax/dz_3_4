@@ -1,61 +1,125 @@
-﻿// // Задача 47
-// Console.WriteLine("Введиите кол-во строк :");
-// int rows = int.Parse(Console.ReadLine());
-// Console.WriteLine("Введиите кол-во строк :");
-// int columns = Convert.ToInt32(Console.ReadLine());
-// double [,] matrix = new double[rows,columns];
-
-// for (int i = 0; i < matrix.GetLength(0); i++)
-// {
-//     for (int j = 0; j < matrix.GetLength(1); j++)
-//     {
-//         matrix[i,j] = new Random().NextDouble() * 100;
-//         Console.Write(matrix[i,j] + "\t");
-//      }
-//     Console.WriteLine();
-    
-// }
-
-//Задача 50
-
-// int[,] array = {{ 1, 2, 3, 4 }, { 5, 6, 7, 8}};
-// Console.Write("Введите искомое число :");
-// int find = Convert.ToInt32(Console.ReadLine());
-// int m=0, n=0;
-// bool f = false;
-// for (int i = 0; i < array.GetLength(0); i++)
-// {
-//          for (int j = 0; j < array.GetLength(1); j++)
-//         {
-//             if (find == array[i, j]) { m = i;n = j;f = true; };
-//             Console.Write(array[i, j] +"\t");
-//         }
-//         Console.WriteLine();
-// }
-// Console.WriteLine();
-// if (f)
-// Console.WriteLine($"Число найдено. Строка {m+1} Столбец {n+1}");
-// else
-// Console.WriteLine("Число не найдено");
+﻿// Задача 56
+//             int[,] matrix = {{5,9,2},
+//                             {2,1,0},
+//                             {3,4,7},
+//                             {9,3,4}};
  
-// Console.ReadKey();
-        
-// Задание 52
+//             int sum = int.MaxValue;
+//             int index = 0;
+//             for (int i = 0; i < 4; i++)
+//             {
+//                 int temp = 0;
+//                 for (int j = 0; j < 3; j++)
+//                 {
+//                     temp += matrix[i, j];
+//                 }
+//                 if (temp < sum)
+//                 {
+//                     sum = temp;
+//                     index = i;
+//                 }
+//             }
+//             Console.WriteLine("Строка: "+index+" Сумма - "+sum);
+//             Console.WriteLine();
+//             for (int i = 0; i < 3; i++)
+//             {
+//                 Console.Write(matrix[index, i]+" ");
+ 
+//             }
 
-// Console.WriteLine("Введиите кол-во строк :");
-// int rows = int.Parse(Console.ReadLine());
-// Console.WriteLine("Введиите кол-во столбцов :");
-// int columns = Convert.ToInt32(Console.ReadLine());
-// int [,] array = new int [rows,columns];
-// for (int i = 0; i < array.GetLength(0); i++) 
-//     {
-//         int mean = 0;
-//         for (int j = 0; j < array.GetLength(1); j++)
+// Задача 58
+//             Console.WriteLine("Введите размер первой матрицы: ");
+//             int[,] A = new int[Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine())];
+//             for (int i = 0; i < A.GetLength(0); i++)
+//             {
+//                 for (int j = 0; j < A.GetLength(1); j++)
+//                 {
+//                     Console.Write("A[{0},{1}] = ", i, j);
+//                     A[i, j] = Convert.ToInt32(Console.ReadLine());
+//                 }
+//             }
+//             Console.WriteLine("Введите размер второй матрицы: ");
+//             int[,] B = new int[Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine())];
+//             for (int i = 0; i < B.GetLength(0); i++)
+//             {
+//                 for (int j = 0; j < B.GetLength(1); j++)
+//                 {
+//                     Console.Write("B[{0},{1}] = ", i, j);
+//                     B[i, j] = Convert.ToInt32(Console.ReadLine());
+//                 }
+//             }
+ 
+//             Console.WriteLine("\nМатрица A:");
+//             Print(A);
+//             Console.WriteLine("\nМатрица B:");
+//             Print(B);
+//             Console.WriteLine("\nМатрица C = A * B:");
+//             int[,] C = Multiplication(A, B);
+//             Print(C);
+ 
+//          int[,] Multiplication(int[,] a, int[,] b)
 //         {
-//             array[i,j] = new Random().Next(11);
-//             Console.Write(array[i,j] + "\t");
-//             mean += array[i, j];
-                
+//             if (a.GetLength(1) != b.GetLength(0)) throw new Exception("Матрицы нельзя перемножить");
+//             int[,] r = new int[a.GetLength(0), b.GetLength(1)];
+//             for (int i = 0; i < a.GetLength(0); i++)
+//             {
+//                 for (int j = 0; j < b.GetLength(1); j++)
+//                 {
+//                     for (int k = 0; k < b.GetLength(0); k++)
+//                     {
+//                         r[i,j] += a[i,k] * b[k,j];
+//                     }
+//                 }
+//             }
+//             return r;
 //         }
-//     Console.WriteLine($"Cреднее арифметическое элементов столбца {i + 1} = {(float)mean/array.GetLength(1)}");
+//         void Print(int[,] a)
+//         {
+//             for (int i = 0; i < a.GetLength(0); i++)
+//             {
+//                 for (int j = 0; j < a.GetLength(1); j++)
+//                 {
+//                     Console.Write("{0} ", a[i, j]);
+//                 }
+//                 Console.WriteLine();
+//             }
+//         }
+
+// Задача 58
+// int n = 4;
+// int[,] matrix = new int[n, n];
+
+// int temp = 1;
+// int i = 0;
+// int j = 0;
+
+// while (temp <= matrix.GetLength(0) * matrix.GetLength(1))
+// {
+//   matrix[i, j] = temp;
+//   temp++;
+//   if (i <= j + 1 && i + j < matrix.GetLength(1) - 1)
+//     j++;
+//   else if (i < j && i + j >= matrix.GetLength(0) - 1)
+//     i++;
+//   else if (i >= j && i + j > matrix.GetLength(1) - 1)
+//     j--;
+//   else
+//     i--;
+// }
+
+// WriteArray(matrix);
+
+// void WriteArray (int[,] array)
+// {
+//   for (int i = 0; i < array.GetLength(0); i++)
+//   {
+//     for (int j = 0; j < array.GetLength(1); j++)
+//     {
+//       if (array[i,j] / 10 <= 0)
+//       Console.Write($" {array[i,j]} ");
+
+//       else Console.Write($"{array[i,j]} ");
 //     }
+//     Console.WriteLine();
+//   }
+// }
