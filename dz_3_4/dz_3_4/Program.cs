@@ -1,125 +1,52 @@
-﻿// Задача 56
-//             int[,] matrix = {{5,9,2},
-//                             {2,1,0},
-//                             {3,4,7},
-//                             {9,3,4}};
- 
-//             int sum = int.MaxValue;
-//             int index = 0;
-//             for (int i = 0; i < 4; i++)
-//             {
-//                 int temp = 0;
-//                 for (int j = 0; j < 3; j++)
-//                 {
-//                     temp += matrix[i, j];
-//                 }
-//                 if (temp < sum)
-//                 {
-//                     sum = temp;
-//                     index = i;
-//                 }
-//             }
-//             Console.WriteLine("Строка: "+index+" Сумма - "+sum);
-//             Console.WriteLine();
-//             for (int i = 0; i < 3; i++)
-//             {
-//                 Console.Write(matrix[index, i]+" ");
- 
-//             }
-
-// Задача 58
-//             Console.WriteLine("Введите размер первой матрицы: ");
-//             int[,] A = new int[Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine())];
-//             for (int i = 0; i < A.GetLength(0); i++)
-//             {
-//                 for (int j = 0; j < A.GetLength(1); j++)
-//                 {
-//                     Console.Write("A[{0},{1}] = ", i, j);
-//                     A[i, j] = Convert.ToInt32(Console.ReadLine());
-//                 }
-//             }
-//             Console.WriteLine("Введите размер второй матрицы: ");
-//             int[,] B = new int[Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine())];
-//             for (int i = 0; i < B.GetLength(0); i++)
-//             {
-//                 for (int j = 0; j < B.GetLength(1); j++)
-//                 {
-//                     Console.Write("B[{0},{1}] = ", i, j);
-//                     B[i, j] = Convert.ToInt32(Console.ReadLine());
-//                 }
-//             }
- 
-//             Console.WriteLine("\nМатрица A:");
-//             Print(A);
-//             Console.WriteLine("\nМатрица B:");
-//             Print(B);
-//             Console.WriteLine("\nМатрица C = A * B:");
-//             int[,] C = Multiplication(A, B);
-//             Print(C);
- 
-//          int[,] Multiplication(int[,] a, int[,] b)
-//         {
-//             if (a.GetLength(1) != b.GetLength(0)) throw new Exception("Матрицы нельзя перемножить");
-//             int[,] r = new int[a.GetLength(0), b.GetLength(1)];
-//             for (int i = 0; i < a.GetLength(0); i++)
-//             {
-//                 for (int j = 0; j < b.GetLength(1); j++)
-//                 {
-//                     for (int k = 0; k < b.GetLength(0); k++)
-//                     {
-//                         r[i,j] += a[i,k] * b[k,j];
-//                     }
-//                 }
-//             }
-//             return r;
-//         }
-//         void Print(int[,] a)
-//         {
-//             for (int i = 0; i < a.GetLength(0); i++)
-//             {
-//                 for (int j = 0; j < a.GetLength(1); j++)
-//                 {
-//                     Console.Write("{0} ", a[i, j]);
-//                 }
-//                 Console.WriteLine();
-//             }
-//         }
-
-// Задача 58
-// int n = 4;
-// int[,] matrix = new int[n, n];
-
-// int temp = 1;
-// int i = 0;
-// int j = 0;
-
-// while (temp <= matrix.GetLength(0) * matrix.GetLength(1))
+﻿
+// Задача 64: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N.
+// Console.WriteLine("Введите число A:");
+// int M =Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите число Б:");
+// int N =Convert.ToInt32(Console.ReadLine());
+// string PrintNumbers(int max, int min)
 // {
-//   matrix[i, j] = temp;
-//   temp++;
-//   if (i <= j + 1 && i + j < matrix.GetLength(1) - 1)
-//     j++;
-//   else if (i < j && i + j >= matrix.GetLength(0) - 1)
-//     i++;
-//   else if (i >= j && i + j > matrix.GetLength(1) - 1)
-//     j--;
-//   else
-//     i--;
+//     if (max == min) return max.ToString();
+//     return(max + ", " + PrintNumbers(max +1,min));
 // }
+// Console.WriteLine(PrintNumbers(M, N));
 
-// WriteArray(matrix);
+// Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+// M = 1; N = 15 -> 120
+// M = 4; N = 8. -> 30*/
 
-// void WriteArray (int[,] array)
+// Console.WriteLine("Введите число M:");
+// int M = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите число N:");
+// int N = Convert.ToInt32(Console.ReadLine());
+// int PrintNumbers(int start, int end)
 // {
-//   for (int i = 0; i < array.GetLength(0); i++)
-//   {
-//     for (int j = 0; j < array.GetLength(1); j++)
+//     int sum = 0;
+//     if (start == end) return end;
+//     else
 //     {
-//       if (array[i,j] / 10 <= 0)
-//       Console.Write($" {array[i,j]} ");
-
-//       else Console.Write($"{array[i,j]} ");
+//         sum += start;
+//         return (sum + PrintNumbers(start + 1, end));
 //     }
-//     Console.WriteLine();
-//   }
 // }
+// Console.WriteLine("Сумма элементов от " + M + " до " + N + " = " + PrintNumbers(M, N));
+
+
+//Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+//m = 2, n = 3 -> A(m,n) = 29
+
+// Console.WriteLine("Введите число M:");
+// int M = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите число N:");
+// int N = Convert.ToInt32(Console.ReadLine());
+// int Akkerman(int x, int y)
+// {
+//     if (x == 0) return y + 1;
+//     else
+//     {
+//         if ((x > 0) && (y == 0))
+//             return Akkerman(x - 1, 1);
+//         else return Akkerman(x - 1, Akkerman(x, y - 1));
+//     }
+// }
+// Console.WriteLine("Функция Аккермена = " + Akkerman(M, N));
